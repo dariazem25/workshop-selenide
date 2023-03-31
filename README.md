@@ -12,5 +12,5 @@ To Generate and open the report in your default browser at:
 
 
 ### Build Status:
-[![Actions Status](https://github.com/dariazem25/workshop-selenide/workflows/main/badge.svg)](https://github.com/dariazem25/workshop-selenide/actions)
+[![Build](https://github.com/dariazem25/workshop-selenide/actions/workflows/main.yml/badge.svg)](https://github.com/dariazem25/workshop-selenide/actions/workflows/main.yml)
 
