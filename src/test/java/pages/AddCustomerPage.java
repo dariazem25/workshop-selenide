@@ -1,37 +1,67 @@
 package pages;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-import static com.codeborne.selenide.Selectors.byXpath;
-import static com.codeborne.selenide.Selenide.$;
+import java.util.Map;
 
 public class AddCustomerPage {
 
+    private WebDriver driver;
+
+    @FindBy(xpath = "//input[@ng-model=\"fName\"]")
+    private WebElement inputFirstName;
+
+    @FindBy(xpath = "//input[@ng-model=\"lName\"]")
+    private WebElement inputLastName;
+
+    @FindBy(xpath = "//input[@ng-model=\"postCd\"]")
+    private WebElement inputPostCode;
+
+    @FindBy(xpath = "//button[@class=\"btn btn-default\"]")
+    private WebElement customerBtn;
+
+    public AddCustomerPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
     @Step("Input the first name")
     public void inputFirstName(String firstName) {
-        $(byXpath("/html/body/div/div/div[2]/div/div[2]/div/div/form/div[1]/input")).sendKeys(firstName);
+        inputFirstName.sendKeys(firstName);
     }
 
     @Step("Input the second name")
     public void inputLastName(String lastName) {
-        $(byXpath("/html/body/div/div/div[2]/div/div[2]/div/div/form/div[2]/input")).sendKeys(lastName);
+        inputLastName.sendKeys(lastName);
     }
 
     @Step("Input the post code")
     public void inputPostCode(String postCode) {
-        $(byXpath("/html/body/div/div/div[2]/div/div[2]/div/div/form/div[3]/input")).sendKeys(postCode);
+        inputPostCode.sendKeys(postCode);
     }
 
     @Step("Click 'Add Customer' button")
     public void clickAddCustomerBtn() {
-        $(byXpath("/html/body/div/div/div[2]/div/div[2]/div/div/form/button")).click();
+        customerBtn.click();
     }
 
-    @Step("Create the customer")
+    @Step("Add the customer")
     public void addCustomer(String firstName, String lastName, String postCode) {
         inputFirstName(firstName);
         inputLastName(lastName);
         inputPostCode(postCode);
+        clickAddCustomerBtn();
+    }
+
+    @Step("Add the customer")
+    public void addCustomer(Map<String, String> customer) {
+        inputFirstName(customer.get("firstName"));
+        inputLastName(customer.get("lastName"));
+        inputPostCode(customer.get("postCode"));
         clickAddCustomerBtn();
     }
 }
