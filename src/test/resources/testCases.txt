@@ -1,0 +1,132 @@
+Test Case 1 - Create valid customer
+
+Preconditions:
+1. Chrome browser is opened
+2. Page https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager/addCust is opened
+
+
+Actions:
+1. Input 'Ivan' value in 'First Name' field
+2. Input 'Ivanov' value in 'Last Name' field
+3. Input '123' value in 'Post Code' field
+4. Click 'Add Customer' button
+5. Open customers page: https://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager/list and find the created customer in the list
+
+
+Expected Result:
+1. The customer was successfully created
+2. The page was not changed
+3. After the step 5 -> the customer is presented in the list
+
+
+------------------------------------------------------------------
+
+Test Case 2 - Sorting by First Name
+
+Preconditions:
+1. Chrome browser is opened
+2. Customers are created:
+- Anna Zekunova 456
+- Kate Yakovleva 123
+- Boris Ivanov 456
+- Zhora Kovalev 756
+3. Customers pagehttps://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager/list is opened
+
+
+Actions:
+1. Сlick on the 'First Name' header
+2. Click on the 'First Name' header again
+
+Expected Result:
+1. The customers were sorted alphabetically in the reverse order:
+Zhora Kovalev
+Kate Yakovleva 123
+Boris Ivanov 456
+Anna Zekunova 456
+
+2. The customers were sorted alphabetically:
+Anna Zekunova 456
+Boris Ivanov 456
+Kate Yakovleva 123
+Zhora Kovalev
+
+----------------------------------------------------------------------------------
+
+Test Case 3 - Find the customers by First Name
+
+Preconditions:
+1. Chrome browser is opened
+2. Customers are created:
+- Anna Zekunova 456
+- Anna Petrova 790
+- Irina Zayceva 432
+- Valeria Zayceva 912
+- Kate Yakovleva 123
+- Boris Ivanov 456
+- Zhora Kovalev 756
+- Anastasiya Lomakina 789
+- Anna Zekunova 902
+3. Customers pagehttps://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager/list is opened
+
+
+Actions:
+1. Input 'Anna' value in 'Search Customer' field
+
+Expected Result:
+1. The following customers are returned:
+- Anna Zekunova 456
+- Anna Petrova 790
+- Anna Zekunova 902
+
+------------------------------------------------------------------
+
+Test Case 4 - Find the customers by Last Name
+
+Preconditions:
+1. Chrome browser is opened
+2. Customers are created:
+- Anna Zekunova 456
+- Anna Petrova 790
+- Irina Zayceva 432
+- Valeria Zayceva 912
+- Kate Yakovleva 123
+- Boris Ivanov 456
+- Zhora Kovalev 756
+- Anastasiya Lomakina 789
+- Anna Zekunova 902
+3. Customers pagehttps://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager/list is opened
+
+
+Actions:
+1. Input 'zayceva' value in 'Search Customer' field
+
+Expected Result:
+1. The following customers are returned:
+- Irina Zayceva 432
+- Valeria Zayceva 912
+
+-------------------------------------------------------------------------------------------
+Test Case 5 - Find the customers by post code
+
+Preconditions:
+1. Chrome browser is opened
+2. Customers are created:
+- Anna Zekunova 456
+- Anna Petrova 790
+- Irina Zayceva 432
+- Valeria Zayceva 912
+- Kate Yakovleva 123
+- Boris Ivanov 456
+- Zhora Kovalev 756
+- Anastasiya Lomakina 789
+- Anna Zekunova 902
+3. Customers pagehttps://www.globalsqa.com/angularJs-protractor/BankingProject/#/manager/list is opened
+
+
+Actions:
+1. Input '456' value in 'Search Customer' field
+
+Expected Result:
+1. The following customers are returned:
+- Anna Zekunova 456
+- Boris Ivanov 456
